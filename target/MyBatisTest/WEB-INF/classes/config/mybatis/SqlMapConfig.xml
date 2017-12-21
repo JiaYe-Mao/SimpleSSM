@@ -8,7 +8,7 @@
     <settings>
         <setting name="lazyLoadingEnabled" value="true"/>
         <setting name="aggressiveLazyLoading" value="false"/>
-        <setting name="logImpl" value="log4j"/>
+        <setting name="logImpl" value="slf4j"/>
     </settings>
     <typeAliases>
         <package name="domain"/>
