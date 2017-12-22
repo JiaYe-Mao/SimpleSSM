@@ -11,10 +11,33 @@
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="webBindingInitializer" ref="customBinder"/>
+    </bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 自定义webBinder -->
+    <bean id="customBinder"
+          class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+        <property name="conversionService" ref="conversionService"/>
+        <!--早期的自定义属性编辑器-->
+        <!--<property name="propertyEditorRegistrars">-->
+        <!--<list>-->
+        <!--<ref bean="customPropertyEditor"/>-->
+        <!--</list>-->
+        <!--</property>-->
+    </bean>
+
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="controller.converter.CustomDateConverter"/>
+                <bean class="controller.converter.StringTrimConverter"/>
+            </list>
+        </property>
     </bean>
 </beans>

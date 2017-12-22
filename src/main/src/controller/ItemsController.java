@@ -47,7 +47,6 @@ public class ItemsController {
     public String updateItems(Model model, Integer id,
                               @ModelAttribute(value = "itemsCustom")ItemsCustom itemsCustom)
     {
-        itemsCustom.setCreatetime(new Date());
         try {
             itemsService.updateItems(id, itemsCustom);
         } catch (Exception e) {
