@@ -11,4 +11,6 @@ public interface ItemsService {
     ItemsCustom findItemsById(Integer id) throws Exception;
 
     void updateItems(Integer id, ItemsCustom itemsCustom) throws Exception;
+
+    void deleteItems(Integer[] ids) throws Exception;
 }

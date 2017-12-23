@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 /**
  * 
  * <p>Title: ItemsQueryVo</p>
@@ -13,6 +15,16 @@ public class ItemsQueryVo {
 	
 	//商品信息
 	private ItemsCustom itemsCustom;
+
+	private List<ItemsCustom> itemsCustomList;
+
+	public List<ItemsCustom> getItemsCustomList() {
+		return itemsCustomList;
+	}
+
+	public void setItemsCustomList(List<ItemsCustom> itemsCustomList) {
+		this.itemsCustomList = itemsCustomList;
+	}
 
 	public ItemsCustom getItemsCustom() {
 		return itemsCustom;
